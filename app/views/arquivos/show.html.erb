@@ -1,0 +1,32 @@
+<section class="page-section clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12 mx-auto">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-lower">Apostilas</span>
+          </h2>
+          <div class="panel-body">
+            <table class="table table-hover">
+              <thead>
+              <tr>
+                <th>Id</th>
+                <th>Data de Envio</th>
+              </tr>
+              </thead>
+              <tbody>
+              <% @arquivos.each do |arquivo| %>
+                <tr>
+                  <td><%= arquivo.id %></td>
+                  <td><%= arquivo.created_at %></td>
+                  <td><%= button_to 'Baixar', { action: :download_arquivo, diretorio: arquivo.diretorio_arquivo }, class: 'btn btn-primary' %></td>
+                </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

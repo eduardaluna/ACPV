@@ -1,0 +1,39 @@
+<section class="page-section clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-10 mx-auto">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-lower">LOGIN</span>
+          </h2>
+          <p class="mb-0">Apenas professores e administradores podem fazer login no sistema</p>
+          <%= form_with scope: :sessao, url: login_path, local: true do |formulario| %>
+            <br>
+            <p align="justify">
+              <%= formulario.label value='E-mail' %>
+              <%= formulario.email_field :email, class:'form-control' %>
+            </p>
+            <p align="justify">
+              <%= formulario.label value='Senha' %><br>
+              <%= formulario.password_field :password, class:'form-control', autocomplete: "off" %>
+            </p>
+            <br>
+            <p>
+              <%= formulario.submit value='Login', id:"login", class:'btn btn-primary btn-xl' %>
+            </p>
+            <br>
+            <% if Administrador.all.size == 0 %>
+              <%= link_to 'Fazer o cadastro do primeiro administrador', new_administrador_path %>
+              <p class="mb-0">Esse link aparece apenas enquanto não há administradores cadastrados</p>
+            <% end %>
+            <div align="right" >
+              <button class="btn btn-primary btn-xl" style="height:40px;width:70px">
+                <%= link_to 'Voltar', root_path, style:"color:white" %>
+              </button>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

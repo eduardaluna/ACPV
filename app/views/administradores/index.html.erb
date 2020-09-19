@@ -1,0 +1,47 @@
+<section class="page-section clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-12 mx-auto">
+        <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+          <h2 class="section-heading mb-4">
+            <span class="section-heading-lower">Administradores com Acesso ao Sistema</span>
+          </h2>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Nome Completo</th>
+                <th>Email</th>
+                <th>Telefone</th>
+                <th>Cidade onde Administra o Curso</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @administradores.each do |administrador| %>
+                <tr>
+                  <td>
+                    <%= administrador.nome %>
+                  </td>
+                  <td>
+                    <%= administrador.email %>
+                  </td>
+                  <td>
+                    <%= administrador.telefone %>
+                  </td>
+                  <td>
+                    <%= administrador.cidade_voluntario %>
+                  </td>
+                </tr>
+              <%end%>
+            </tbody>
+          </table>
+          <br><br>
+          <td>
+            <button class="btn btn-primary btn-xl" style="height:40px;width:140px">
+              <%= link_to "Voltar", menu_administrador_path, style:"color:white"%>
+            </button>
+          </td>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
